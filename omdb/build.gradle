@@ -50,6 +50,10 @@ dependencies {
     //Calligraphy
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 
+    //Butterknife
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+
     //Dagger2
     apt 'com.google.dagger:dagger-compiler:2.8'
     compile 'com.google.dagger:dagger:2.8'
