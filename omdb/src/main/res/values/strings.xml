@@ -5,4 +5,5 @@
     <string name="search_movies_hint">Search a movie by name</string>
     <string name="search_movie_min_length">Sorry, this title is too short.</string>
     <string name="search_movie_error">An error occurred, please try again later.</string>
+    <string name="search_movie_not_found">Movie not found. Try another title.</string>
 </resources>

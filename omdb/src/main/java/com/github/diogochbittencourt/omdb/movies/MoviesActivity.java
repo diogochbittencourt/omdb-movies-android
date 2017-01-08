@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import com.github.diogochbittencourt.omdb.AppContext;
 import com.github.diogochbittencourt.omdb.BaseActivity;
@@ -16,24 +17,24 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MoviesActivity extends BaseActivity implements MoviesContract.View {
+
+    @Inject
+    MoviesPresenter moviesPresenter;
 
     @BindView(R.id.movies_list)
     RecyclerView moviesList;
     @BindView(R.id.movies_fab)
     FloatingActionButton fabAddMovie;
-
-    @Inject
-    MoviesPresenter moviesPresenter;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
-        ButterKnife.bind(this);
         configureInjectionComponents();
     }
 

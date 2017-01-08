@@ -2,7 +2,6 @@ package com.github.diogochbittencourt.omdb.searchmovies;
 
 import com.github.diogochbittencourt.omdb.BasePresenter;
 import com.github.diogochbittencourt.omdb.models.Movie;
-import com.github.diogochbittencourt.omdb.models.MovieSearchResult;
 import com.github.diogochbittencourt.omdb.networking.OmdbRepository;
 
 import java.util.List;
@@ -39,11 +38,13 @@ class SearchMoviesPresenter extends BasePresenter implements SearchMoviesContrac
     @Override
     public void onQueryTextSubmit(String query) {
         if (query.length() > QUERY_MIN_LENGTH) {
+            view.clearMoviesList();
             Observable<List<Movie>> observable = omdbRepository.searchMoviesByQuery(query);
             textSubmissionSubscription = observable.observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io()).subscribe(new Subscriber<List<Movie>>() {
                         @Override
                         public void onCompleted() {
+                            view.onSearchCompleted();
                         }
 
                         @Override
@@ -53,6 +54,7 @@ class SearchMoviesPresenter extends BasePresenter implements SearchMoviesContrac
 
                         @Override
                         public void onNext(List<Movie> movies) {
+                            view.onQueryTextSubmitted(movies);
                         }
                     });
         } else {
@@ -66,17 +68,18 @@ class SearchMoviesPresenter extends BasePresenter implements SearchMoviesContrac
         if (query.length() > QUERY_MIN_LENGTH) {
             if (textChangeSubscription != null && !textChangeSubscription.isUnsubscribed()) {
                 textChangeSubscription.unsubscribe();
-                //TODO clear adapter
             }
 
-            Observable<MovieSearchResult> observable = omdbRepository.searchMoviesByPartialQuery(query);
+            view.clearMoviesList();
+            Observable<List<Movie>> observable = omdbRepository.searchMoviesByQuery(query);
             textChangeSubscription = observable
                     .debounce(DEBOUNCE_TIMEOUT, TimeUnit.MILLISECONDS)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
-                    .subscribe(new Subscriber<MovieSearchResult>() {
+                    .subscribe(new Subscriber<List<Movie>>() {
                         @Override
                         public void onCompleted() {
+                            view.onSearchCompleted();
                         }
 
                         @Override
@@ -85,7 +88,8 @@ class SearchMoviesPresenter extends BasePresenter implements SearchMoviesContrac
                         }
 
                         @Override
-                        public void onNext(MovieSearchResult movieSearchResult) {
+                        public void onNext(List<Movie> movies) {
+                            view.onQueryTextChanged(movies);
                         }
                     });
         }

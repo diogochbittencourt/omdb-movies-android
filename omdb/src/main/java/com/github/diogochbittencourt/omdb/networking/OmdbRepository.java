@@ -1,7 +1,6 @@
 package com.github.diogochbittencourt.omdb.networking;
 
 import com.github.diogochbittencourt.omdb.models.Movie;
-import com.github.diogochbittencourt.omdb.models.MovieSearchResult;
 
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +19,7 @@ public class OmdbRepository {
     private OmdbAPI omdbAPI;
 
     @Inject
-    public OmdbRepository(OmdbAPI omdbAPI) {
+    OmdbRepository(OmdbAPI omdbAPI) {
         this.omdbAPI = omdbAPI;
     }
 
@@ -33,9 +32,5 @@ public class OmdbRepository {
 
     private Observable<Movie> searchMoviesByTitle(String title) {
         return omdbAPI.searchMoviesByTitle(title, "short", "movie", "json").subscribeOn(Schedulers.newThread());
-    }
-
-    public Observable<MovieSearchResult> searchMoviesByPartialQuery(String query) {
-        return omdbAPI.searchMoviesbyQuery(query, "short", "movie", "json");
     }
 }

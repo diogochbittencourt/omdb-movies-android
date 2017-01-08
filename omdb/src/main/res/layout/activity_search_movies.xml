@@ -4,4 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/toolbar" />
+
+    <include layout="@layout/movies_recycler_view" />
+
 </android.support.constraint.ConstraintLayout>

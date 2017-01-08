@@ -11,9 +11,15 @@ import java.util.List;
 public interface SearchMoviesContract {
 
     interface View {
-        void showMovies(List<Movie> movies);
+        void onSearchCompleted();
+
+        void onQueryTextSubmitted(List<Movie> movies);
+
+        void onQueryTextChanged(List<Movie> movies);
 
         void hideKeyboard();
+
+        void clearMoviesList();
 
         void showQueryMinLengthError();
 
