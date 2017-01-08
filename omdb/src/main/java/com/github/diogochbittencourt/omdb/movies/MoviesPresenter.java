@@ -6,12 +6,12 @@ import javax.inject.Inject;
  * Created by Diogo Bittencourt on 04/01/17.
  */
 
-public class MoviesPresenter implements MoviesContract.Presenter {
+class MoviesPresenter implements MoviesContract.Presenter {
 
     private MoviesContract.View view;
 
     @Inject
-    public MoviesPresenter(MoviesContract.View view) {
+    MoviesPresenter(MoviesContract.View view) {
         this.view = view;
     }
 
@@ -20,12 +20,12 @@ public class MoviesPresenter implements MoviesContract.Presenter {
     }
 
     @Override
-    public void addMovie() {
+    public void onAddMoviesButtonClick() {
         view.openSearchMovieScreen();
     }
 
     @Override
-    public void showMovieDetail() {
+    public void onMovieClick() {
 
     }
 }

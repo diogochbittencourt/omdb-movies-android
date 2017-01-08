@@ -13,16 +13,18 @@ public interface MoviesContract {
     interface View {
         void showMovies(List<Movie> movies);
 
-        void showError(String message);
-
         void openSearchMovieScreen();
+
+        void openMovieDetailScreen();
+
+        void showError(String message);
     }
 
     interface Presenter {
         void loadMovies();
 
-        void addMovie();
+        void onAddMoviesButtonClick();
 
-        void showMovieDetail();
+        void onMovieClick();
     }
 }

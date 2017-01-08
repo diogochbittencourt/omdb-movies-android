@@ -24,7 +24,7 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
     @BindView(R.id.movies_list)
     RecyclerView moviesList;
     @BindView(R.id.movies_fab)
-    FloatingActionButton moviesFab;
+    FloatingActionButton fabAddMovie;
 
     @Inject
     MoviesPresenter moviesPresenter;
@@ -46,7 +46,7 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
 
     @OnClick(R.id.movies_fab)
     public void onClick() {
-        moviesPresenter.addMovie();
+        moviesPresenter.onAddMoviesButtonClick();
     }
 
     @Override
@@ -55,12 +55,19 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
     }
 
     @Override
-    public void showError(String message) {
+    public void openSearchMovieScreen() {
+        Intent intent = new Intent(this, SearchMoviesActivity.class);
+        intent.setAction(Intent.ACTION_SEARCH);
+        startActivity(intent);
+    }
+
+    @Override
+    public void openMovieDetailScreen() {
 
     }
 
     @Override
-    public void openSearchMovieScreen() {
-        startActivity(new Intent(this, SearchMoviesActivity.class));
+    public void showError(String message) {
+
     }
 }

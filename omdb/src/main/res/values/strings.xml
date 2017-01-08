@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">OMDb</string>
+    <string name="movies_screen_title">My movies</string>
+    <string name="search_movies_screen_title">Search movie</string>
+    <string name="search_movies_hint">Search a movie by name</string>
+    <string name="search_movie_min_length">Sorry, this title is too short.</string>
+    <string name="search_movie_error">An error occurred, please try again later.</string>
 </resources>

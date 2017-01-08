@@ -9,6 +9,8 @@ import com.github.diogochbittencourt.omdb.networking.NetAdapter;
 
 import java.io.File;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -26,11 +28,13 @@ public class AppModule {
     }
 
     @Provides
+    @Singleton
     public Application providesApplication() {
         return application;
     }
 
     @Provides
+    @Singleton
     public SharedPreferences providesSharedPreferences() {
         return PreferenceManager.getDefaultSharedPreferences(application);
     }
