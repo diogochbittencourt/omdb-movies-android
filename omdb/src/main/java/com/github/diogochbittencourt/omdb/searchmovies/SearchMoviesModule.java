@@ -9,11 +9,11 @@ import dagger.Provides;
  * Created by Diogo Bittencourt on 07/01/17.
  */
 @Module
-public class SearchMoviesModule {
+class SearchMoviesModule {
 
     private final SearchMoviesContract.View view;
 
-    public SearchMoviesModule(SearchMoviesContract.View view) {
+    SearchMoviesModule(SearchMoviesContract.View view) {
         this.view = view;
     }
 

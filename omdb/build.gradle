@@ -51,6 +51,7 @@ dependencies {
 
     //Support
     compile "com.android.support:design:${libSupportVersion}"
+    compile "com.android.support:cardview-v7:${libSupportVersion}"
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 
     //Calligraphy

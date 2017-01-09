@@ -6,4 +6,12 @@
     <string name="search_movie_min_length">Sorry, this title is too short.</string>
     <string name="search_movie_error">An error occurred, please try again later.</string>
     <string name="search_movie_not_found">Movie not found. Try another title.</string>
+    <string name="movie_detail_title">%1$s (%2$s)</string>
+    <string name="movie_detail_genre">Genre: %1$s</string>
+    <string name="movie_detail_actors">With %1$s</string>
+    <string name="movie_detail_director">Director: %1$s</string>
+    <string name="movie_detail_country">Country: %1$s</string>
+    <string name="movie_detail_runtime">Duration: %1$s</string>
+    <string name="movie_detail_language">Language: %1$s</string>
+    <string name="movie_detail_awards">Awards: %1$s</string>
 </resources>

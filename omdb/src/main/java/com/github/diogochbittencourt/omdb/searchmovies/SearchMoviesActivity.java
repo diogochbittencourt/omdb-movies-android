@@ -12,12 +12,12 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.github.diogochbittencourt.omdb.AppContext;
 import com.github.diogochbittencourt.omdb.BaseActivity;
 import com.github.diogochbittencourt.omdb.R;
 import com.github.diogochbittencourt.omdb.models.Movie;
+import com.github.diogochbittencourt.omdb.moviedetail.MovieDetailActivity;
 import com.github.diogochbittencourt.omdb.movies.MoviesAdapter;
 
 import java.net.URLEncoder;
@@ -62,13 +62,9 @@ public class SearchMoviesActivity extends BaseActivity implements SearchMoviesCo
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        moviesAdapter = new MoviesAdapter(this, movies, movie -> openMovieDetail());
+        moviesAdapter = new MoviesAdapter(this, movies, this::openMovieDetail);
         moviesList.setLayoutManager(new LinearLayoutManager(this));
         moviesList.setAdapter(moviesAdapter);
-    }
-
-    private void openMovieDetail() {
-        Toast.makeText(this, "Open Movie Detail", Toast.LENGTH_SHORT).show();
     }
 
     private void configureInjectionComponents() {
@@ -76,6 +72,12 @@ public class SearchMoviesActivity extends BaseActivity implements SearchMoviesCo
                 .appComponent(AppContext.getAppComponent())
                 .searchMoviesModule(new SearchMoviesModule(this))
                 .build().inject(this);
+    }
+
+    private void openMovieDetail(Movie movie) {
+        Intent intent = new Intent(this, MovieDetailActivity.class);
+        intent.putExtra(MovieDetailActivity.MOVIE_EXTRA, movie);
+        startActivity(intent);
     }
 
     @Override

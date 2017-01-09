@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetAdapter {
 
     private static final int CACHE_SIZE = 10 * 1024 * 1024;
-    private static final int TIME_OUT = 10;
+    private static final int TIME_OUT = 45;
     private static final String BASE_URL = "http://www.omdbapi.com";
 
     private static Retrofit retrofit;

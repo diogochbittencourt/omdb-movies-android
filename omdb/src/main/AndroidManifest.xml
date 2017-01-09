@@ -44,6 +44,16 @@
                 android:resource="@xml/searchable" />
         </activity>
 
+        <activity
+            android:name=".moviedetail.MovieDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.github.diogochbittencourt.omdb.moviedetail.MovieDetailActivity" />
+        </activity>
+
     </application>
 
 </manifest>
