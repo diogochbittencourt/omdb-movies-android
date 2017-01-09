@@ -11,20 +11,18 @@ import java.util.List;
 public interface MoviesContract {
 
     interface View {
-        void showMovies(List<Movie> movies);
-
         void openSearchMovieScreen();
 
-        void openMovieDetailScreen();
+        void showEmptySavedMoviesMessage();
 
-        void showError(String message);
+        void showGetSavedMoviesError();
+
+        void showSavedMovies(List<Movie> movies);
     }
 
     interface Presenter {
-        void loadMovies();
+        void loadSavedMovies();
 
         void onAddMoviesButtonClick();
-
-        void onMovieClick();
     }
 }

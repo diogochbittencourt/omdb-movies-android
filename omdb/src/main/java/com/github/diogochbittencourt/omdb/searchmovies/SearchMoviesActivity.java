@@ -17,7 +17,6 @@ import com.github.diogochbittencourt.omdb.AppContext;
 import com.github.diogochbittencourt.omdb.BaseActivity;
 import com.github.diogochbittencourt.omdb.R;
 import com.github.diogochbittencourt.omdb.models.Movie;
-import com.github.diogochbittencourt.omdb.moviedetail.MovieDetailActivity;
 import com.github.diogochbittencourt.omdb.movies.MoviesAdapter;
 
 import java.net.URLEncoder;
@@ -72,12 +71,6 @@ public class SearchMoviesActivity extends BaseActivity implements SearchMoviesCo
                 .appComponent(AppContext.getAppComponent())
                 .searchMoviesModule(new SearchMoviesModule(this))
                 .build().inject(this);
-    }
-
-    private void openMovieDetail(Movie movie) {
-        Intent intent = new Intent(this, MovieDetailActivity.class);
-        intent.putExtra(MovieDetailActivity.MOVIE_EXTRA, movie);
-        startActivity(intent);
     }
 
     @Override

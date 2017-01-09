@@ -45,17 +45,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         Movie movie = movies.get(position);
         holder.click(movie, onItemClickListener);
         loadMoviePoster(holder, movie.getPoster());
-        holder.movieTitle.setText(getMovieTitle(movie));
+        holder.movieTitle.setText(context.getString(R.string.movie_detail_title, movie.getTitle(), movie.getYear()));
         holder.movieActors.setText(!TextUtils.isEmpty(movie.getActors()) ? movie.getActors() : "");
         holder.movieCountry.setText(!TextUtils.isEmpty(movie.getCountry()) ? movie.getCountry() : "");
         holder.movieRuntime.setText(!TextUtils.isEmpty(movie.getRuntime()) ? movie.getRuntime() : "");
         holder.movieLanguage.setText(!TextUtils.isEmpty(movie.getLanguage()) ? movie.getLanguage() : "");
         holder.movieImdbRating.setText(!TextUtils.isEmpty(movie.getImdbrating()) ? movie.getImdbrating() : "");
-    }
-
-    private String getMovieTitle(Movie movie) {
-        return !TextUtils.isEmpty(movie.getTitle()) ? movie.getTitle() +
-                (!TextUtils.isEmpty(movie.getYear()) ? " (" + movie.getYear() + ")" : "") : "";
     }
 
     private void loadMoviePoster(ViewHolder holder, String poster) {
