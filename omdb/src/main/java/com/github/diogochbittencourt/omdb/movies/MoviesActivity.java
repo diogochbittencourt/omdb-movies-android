@@ -51,6 +51,9 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
     }
 
     private void configureViews() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(getString(R.string.movies_screen_title));
+        }
         moviesAdapter = new MoviesAdapter(this, movies, this::openMovieDetail);
         moviesList.setLayoutManager(new LinearLayoutManager(this));
         moviesList.setAdapter(moviesAdapter);

@@ -99,12 +99,3 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 }
-
-retrolambda {
-    jdk '/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home'
-    oldJdk '/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home'
-    javaVersion JavaVersion.VERSION_1_7
-    jvmArgs '-noverify'
-    defaultMethods false
-    incremental true
-}
