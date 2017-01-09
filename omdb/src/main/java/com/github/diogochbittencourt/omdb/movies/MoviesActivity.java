@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.github.diogochbittencourt.omdb.AppContext;
 import com.github.diogochbittencourt.omdb.BaseActivity;
@@ -39,6 +41,8 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
     Toolbar toolbar;
     @BindView(R.id.parent_layout)
     ConstraintLayout parentLayout;
+    @BindView(R.id.movies_empty_list_text)
+    AppCompatTextView emptyListText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.movies_screen_title));
         }
+
         moviesAdapter = new MoviesAdapter(this, movies, this::openMovieDetail);
         moviesList.setLayoutManager(new LinearLayoutManager(this));
         moviesList.addItemDecoration(new MoviesAdapterRecyclerItemDecoration(this));
@@ -89,7 +94,8 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
     public void showEmptySavedMoviesMessage() {
         movies.clear();
         moviesAdapter.notifyDataSetChanged();
-        //TODO show empty container
+        emptyListText.setVisibility(View.VISIBLE);
+        moviesList.setVisibility(View.GONE);
     }
 
     @Override
@@ -99,8 +105,15 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
 
     @Override
     public void showSavedMovies(List<Movie> moviesResult) {
-        movies.clear();
-        movies.addAll(moviesResult);
-        moviesAdapter.notifyDataSetChanged();
+        if (moviesResult != null && !moviesResult.isEmpty()) {
+            movies.clear();
+            movies.addAll(moviesResult);
+            moviesAdapter.notifyDataSetChanged();
+            moviesList.setVisibility(View.VISIBLE);
+            emptyListText.setVisibility(View.GONE);
+        } else {
+            moviesList.setVisibility(View.GONE);
+            emptyListText.setVisibility(View.VISIBLE);
+        }
     }
 }

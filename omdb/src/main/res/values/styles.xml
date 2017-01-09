@@ -25,6 +25,11 @@
         <item name="android:textColor">@color/textColorSecondary</item>
     </style>
 
+    <style name="Theme.Omdb.TextAppearance.TextView.EmptyListText" parent="android:TextAppearance.Medium">
+        <item name="fontPath">@string/roboto_bold</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+    </style>
+
     <style name="ExpandedAppBar" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@android:color/white</item>
