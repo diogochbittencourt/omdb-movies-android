@@ -8,6 +8,23 @@
         <item name="android:windowBackground">@color/window_background</item>
     </style>
 
+    <style name="Theme.Omdb.TextAppearance.TextView.ListItem.Default" parent="android:TextAppearance.Small">
+        <item name="fontPath">@string/roboto_medium</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+    </style>
+
+    <style name="Theme.Omdb.TextAppearance.TextView.ListItem.MovieTitle" parent="android:TextAppearance.Medium">
+        <item name="fontPath">@string/roboto_bold</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="Theme.Omdb.TextAppearance.TextView.ListItem.MovieRating" parent="Theme.Omdb.TextAppearance.TextView.ListItem.MovieTitle" />
+
+    <style name="Theme.Omdb.TextAppearance.TextView.MovieDetail" parent="android:TextAppearance.Medium">
+        <item name="fontPath">@string/roboto_medium</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+    </style>
+
     <style name="ExpandedAppBar" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@android:color/white</item>

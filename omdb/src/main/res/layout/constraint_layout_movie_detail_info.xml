@@ -8,6 +8,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_genre"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -20,6 +21,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_plot"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -38,6 +40,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_actors"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -54,6 +57,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_director"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -69,6 +73,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_country"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -85,6 +90,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_runtime"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -101,6 +107,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_language"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -115,6 +122,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_imdb_rating"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -133,6 +141,7 @@
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/movie_awards"
+        style="@style/Theme.Omdb.TextAppearance.TextView.MovieDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"

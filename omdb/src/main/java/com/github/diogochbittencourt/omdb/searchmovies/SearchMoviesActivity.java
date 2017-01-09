@@ -18,6 +18,7 @@ import com.github.diogochbittencourt.omdb.BaseActivity;
 import com.github.diogochbittencourt.omdb.R;
 import com.github.diogochbittencourt.omdb.models.Movie;
 import com.github.diogochbittencourt.omdb.movies.MoviesAdapter;
+import com.github.diogochbittencourt.omdb.movies.MoviesAdapterRecyclerItemDecoration;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ public class SearchMoviesActivity extends BaseActivity implements SearchMoviesCo
 
         moviesAdapter = new MoviesAdapter(this, movies, this::openMovieDetail);
         moviesList.setLayoutManager(new LinearLayoutManager(this));
+        moviesList.addItemDecoration(new MoviesAdapterRecyclerItemDecoration(this));
         moviesList.setAdapter(moviesAdapter);
     }
 

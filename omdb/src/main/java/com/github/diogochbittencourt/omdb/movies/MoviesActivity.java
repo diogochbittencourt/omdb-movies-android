@@ -56,6 +56,7 @@ public class MoviesActivity extends BaseActivity implements MoviesContract.View 
         }
         moviesAdapter = new MoviesAdapter(this, movies, this::openMovieDetail);
         moviesList.setLayoutManager(new LinearLayoutManager(this));
+        moviesList.addItemDecoration(new MoviesAdapterRecyclerItemDecoration(this));
         moviesList.setAdapter(moviesAdapter);
     }
 
