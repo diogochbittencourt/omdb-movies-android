@@ -14,4 +14,6 @@
     <string name="movie_detail_runtime">Duration: %1$s</string>
     <string name="movie_detail_language">Language: %1$s</string>
     <string name="movie_detail_awards">Awards: %1$s</string>
+    <string name="movie_detail_deleted">Movie deleted.</string>
+    <string name="movie_detail_saved">Movie saved.</string>
 </resources>

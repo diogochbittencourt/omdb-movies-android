@@ -10,6 +10,6 @@ import dagger.Component;
  */
 @PerActivity
 @Component(dependencies = AppComponent.class, modules = MovieDetailModule.class)
-public interface MovieDetailComponent {
+interface MovieDetailComponent {
     void inject(MovieDetailActivity movieDetailActivity);
 }

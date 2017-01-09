@@ -1,11 +1,14 @@
 package com.github.diogochbittencourt.omdb.networking;
 
+import com.google.gson.GsonBuilder;
+
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.github.diogochbittencourt.omdb.BuildConfig;
 
 import java.io.File;
+import java.lang.reflect.Modifier;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -42,7 +45,10 @@ public class NetAdapter {
         retrofit = new Retrofit.Builder()
                 .client(createClient(cacheDir))
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
+                        .serializeNulls()
+                        .excludeFieldsWithModifiers(Modifier.FINAL, Modifier.TRANSIENT, Modifier.STATIC)
+                        .create()))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
     }

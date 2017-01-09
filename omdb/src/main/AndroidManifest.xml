@@ -54,6 +54,16 @@
                 android:value="com.github.diogochbittencourt.omdb.moviedetail.MovieDetailActivity" />
         </activity>
 
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="omdb.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="5" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.github.diogochbittencourt.omdb.models.Movie" />
+
     </application>
 
 </manifest>

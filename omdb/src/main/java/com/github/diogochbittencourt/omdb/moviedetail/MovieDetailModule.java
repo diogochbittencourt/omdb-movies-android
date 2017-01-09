@@ -9,7 +9,7 @@ import dagger.Provides;
  * Created by Diogo Bittencourt on 08/01/17.
  */
 @Module
-public class MovieDetailModule {
+class MovieDetailModule {
 
     private final MovieDetailContract.View view;
 

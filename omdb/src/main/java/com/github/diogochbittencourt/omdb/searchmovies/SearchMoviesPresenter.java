@@ -49,6 +49,7 @@ class SearchMoviesPresenter extends BasePresenter implements SearchMoviesContrac
 
                         @Override
                         public void onError(Throwable e) {
+                            view.hideKeyboard();
                             showSearchMovieError();
                         }
 
@@ -84,6 +85,7 @@ class SearchMoviesPresenter extends BasePresenter implements SearchMoviesContrac
 
                         @Override
                         public void onError(Throwable e) {
+                            view.hideKeyboard();
                             showSearchMovieError();
                         }
 

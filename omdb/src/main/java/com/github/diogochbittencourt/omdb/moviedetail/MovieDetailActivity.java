@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 
@@ -20,6 +21,8 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.activeandroid.Cache.getContext;
 
 /**
  * Created by Diogo Bittencourt on 04/01/17.
@@ -69,6 +72,7 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailCont
         configureInjectionComponents();
         movie = getIntent().getExtras().getParcelable(MOVIE_EXTRA);
         configureViews();
+        movieDetailPresenter.onScreenCreated(movie.getImdbid());
     }
 
     private void configureInjectionComponents() {
@@ -109,6 +113,26 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailCont
 
     @OnClick(R.id.movie_detail_fab)
     public void onClick() {
-        movieDetailPresenter.onSaveMovieButtonClick();
+        movieDetailPresenter.onFabButtonClick(movie);
+    }
+
+    @Override
+    public void setFabIconSave() {
+        movieDetailFab.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_save));
+    }
+
+    @Override
+    public void setFabIconDelete() {
+        movieDetailFab.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_delete));
+    }
+
+    @Override
+    public void showSaveMovieSuccessMessage() {
+        showSnackBarMessage(parentLayout, getString(R.string.movie_detail_saved));
+    }
+
+    @Override
+    public void showDeleteMovieSuccessMessage() {
+        showSnackBarMessage(parentLayout, getString(R.string.movie_detail_deleted));
     }
 }

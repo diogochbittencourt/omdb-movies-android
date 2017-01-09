@@ -5,51 +5,93 @@ import com.google.gson.annotations.SerializedName;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+
 /**
  * Created by Diogo Bittencourt on 04/01/17.
  */
+@Table(name = "MyMovies")
+public class Movie extends Model implements Parcelable {
 
-public class Movie implements Parcelable {
+    @SerializedName("imdbID")
+    @Column(index = true, name = "imdbid", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
+    private String imdbid;
 
     @SerializedName("Title")
+    @Column(name = "title")
     private String title;
+
     @SerializedName("Year")
+    @Column(name = "year")
     private String year;
+
     @SerializedName("Rated")
+    @Column(name = "rated")
     private String rated;
+
     @SerializedName("Released")
+    @Column(name = "released")
     private String released;
+
     @SerializedName("Runtime")
+    @Column(name = "runtime")
     private String runtime;
+
     @SerializedName("Genre")
+    @Column(name = "genre")
     private String genre;
+
     @SerializedName("Director")
+    @Column(name = "director")
     private String director;
+
     @SerializedName("Writer")
+    @Column(name = "writer")
     private String writer;
+
     @SerializedName("Actors")
+    @Column(name = "actors")
     private String actors;
+
     @SerializedName("Plot")
+    @Column(name = "plot")
     private String plot;
+
     @SerializedName("Language")
+    @Column(name = "language")
     private String language;
+
     @SerializedName("Country")
+    @Column(name = "country")
     private String country;
+
     @SerializedName("Awards")
     private String awards;
+
     @SerializedName("Poster")
+    @Column(name = "poster")
     private String poster;
+
     @SerializedName("Metascore")
+    @Column(name = "metascore")
     private String metascore;
+
     @SerializedName("imdbRating")
+    @Column(name = "imdbrating")
     private String imdbrating;
+
     @SerializedName("imdbVotes")
+    @Column(name = "imdbvotes")
     private String imdbvotes;
-    @SerializedName("imdbID")
-    private String imdbid;
+
     @SerializedName("Type")
+    @Column(name = "type")
     private String type;
+
     @SerializedName("Response")
+    @Column(name = "response")
     private String response;
 
     public Movie() {
